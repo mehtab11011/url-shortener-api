@@ -27,3 +27,86 @@ The **URL Shortener REST API** is a web service designed to shorten long URLs, r
 
 ### Conclusion:
 The **URL Shortener REST API** project offers a simple yet effective solution for shortening and managing URLs. It successfully provides essential features such as URL shortening, updating, deletion, and access tracking. Built with **Django** and **DRF**, the project is scalable and easy to extend. It can be enhanced with additional features based on user feedback.
+
+
+
+# How to Run the Project
+
+Follow these steps to run the **URL Shortener REST API** project locally on your machine:
+
+### 1. **Clone the Repository**
+First, clone the project repository to your local machine using the following command:
+```bash
+git clone https://github.com/your-username/url-shortener.git
+2. Navigate to Project Directory
+Once cloned, navigate into the project directory:
+
+cd url-shortener
+3. Create a Virtual Environment (Optional but Recommended)
+It is recommended to use a virtual environment to manage dependencies. You can create one using the following command:
+python -m venv venv
+Activate the virtual environment:
+For Windows:
+venv\Scripts\activate
+For macOS/Linux:
+source venv/bin/activate
+
+4. Install Dependencies
+Install the required dependencies by running:
+
+pip install -r requirements.txt
+5. Setup Database
+If the database has not been set up yet, you can run the following command to apply migrations:
+
+python manage.py migrate
+6. Run the Development Server
+Start the development server by running:
+python manage.py runserver
+This will start the server at http://127.0.0.1:8000/.
+
+7. Test the API
+You can now test the API using a tool like Thunder Client or Postman. Here are the available API endpoints:
+
+Shorten URL:
+
+POST /shorten/
+
+Request body (example):
+
+{
+  "Original_URL": "https://example.com"
+}
+Retrieve Original URL:
+
+GET /return/{short_url}/
+
+Example: GET http://127.0.0.1:8000/return/eAipBw/
+
+Redirects to the original URL.
+
+Update URL:
+
+PUT /update/{short_url}/
+
+Request body (example):
+
+{
+  "Original_URL": "https://new-url.com"
+}
+Delete URL:
+
+DELETE /delete/{short_url}/
+
+Access Count:
+
+GET /count/{short_url}/
+
+Returns the number of times the shortened URL has been accessed.
+
+8. Shut Down the Server
+Once done, you can stop the development server by pressing Ctrl+C in the terminal.
+
+
+
+
+
